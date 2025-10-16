@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="rps.css" />
+</head>
+<body>
+
+  <h1>Rock Paper Scissors</h1>
+
+  <div class="menu-wrapper">
+    <div class="menu-container">
+      <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+      <div class="menu-dropdown">
+        <div class="menu-content">
+          <h3>How to Play</h3>
+          <ul>
+            <li>✊ Rock beats ✌️ Scissors</li>
+            <li>✋ Paper beats ✊ Rock</li>
+            <li>✌️ Scissors beats ✋ Paper</li>
+          </ul>
+          <h3>Options</h3>
+          <button onclick="toggleSound()">🔇 Toggle Sound</button>
+          <button onclick="resetGame()">🔄 Reset Game</button>
+
+          <h3>Difficulty</h3>
+          <select id="difficulty-selector" onchange="setDifficulty(this.value)">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lives-container">
+  <div class="lives" id="player-lives">
+    <h3>You</h3>
+    <div class="hearts">
+      <!-- 5 hearts for player -->
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+    </div>
+  </div>
+  <div class="lives" id="cpu-lives">
+    <h3>CPU</h3>
+    <div class="hearts">
+      <!-- 5 hearts for CPU -->
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+      <span class="heart">❤️</span>
+    </div>
+  </div>
+</div>
+
+<div class="emoji-avatars">
+  <div class="avatar" id="player-avatar">👨</div>
+  <div class="avatar" id="cpu-avatar">🤖</div>
+</div>
+
+  <div class="hands-container">
+    <!-- Player hand -->
+    <div class="hand-wrapper" id="player-wrapper">
+      <img id="player-hand" class="hand" src="player_rock.png" alt="Player Hand" />
+    </div>
+    <!-- CPU hand (flipped using wrapper) -->
+    <div class="hand-wrapper" id="cpu-wrapper">
+      <img id="cpu-hand" class="hand" src="cpu_rock.png" alt="CPU Hand" />
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="rock" onclick="startGame('rock')">✊ Rock</button>
+    <button class="paper" onclick="startGame('paper')">✋ Paper</button>
+    <button class="scissors" onclick="startGame('scissors')">✌️ Scissors</button>
+  </div>
+
+  <div id="result-container">
+  <div id="result">Make your move!</div>
+  </div>
+  <div id="action-overlay">
+  <div id="action-text"></div>
+</div>
+  <div id="action-result"></div>
+  <div id="score">You: 0 | CPU: 0</div>
+
+  <!-- <div class="sound-test">
+    <button onclick="sounds.click.play()">Test Click</button>
+    <button onclick="sounds.win.play()">Test Win</button>
+    <button onclick="sounds.lose.play()">Test Lose</button>
+    <button onclick="sounds.draw.play()">Test Draw</button>
+  </div> -->
+
+  <script src="rps.js"></script>
+</body>
+</html>
